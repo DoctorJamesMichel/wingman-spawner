@@ -23,6 +23,8 @@ Instead of building one large agent that tries to do everything at once, you bui
 
 The system becomes a **process**, not a personality.  
 
+In Wingman, this is the difference between *automation* and *governance.*    
+
 ---
 
 ## The Canonical Model    
@@ -109,7 +111,8 @@ Avoid Pipes & Filters when:
 
 - the system requires high-frequency back-and-forth between components  
 - the output must emerge from many parallel interactions  
-- the system requires dynamic routing based on live state  
+- the system requires dynamic routing based on live state
+- the workflow must adapt dynamically to unpredictable branching logic without stable intermediate artifacts
 
 In those cases, you may need:  
 
@@ -121,35 +124,47 @@ In those cases, you may need:
 
 ## Strengths
 
-### 1. Auditability
-Each stage produces a recordable artifact.
+### 1. Auditability  
+Each stage produces a recordable artifact.  
 
-### 2. Testability
-Each filter can be unit-tested in isolation.
+### 2. Testability  
+Each filter can be unit-tested in isolation.  
 
-### 3. Safety
-You can insert checkpoints before dangerous steps.
+### 3. Safety  
+You can insert checkpoints before dangerous steps.  
 
-### 4. Composability
-New filters can be added without redesigning the whole system.
+### 4. Composability  
+New filters can be added without redesigning the whole system.  
 
-### 5. Reversibility
-Rollback becomes possible when outputs are staged.
+### 5. Reversibility  
+Rollback becomes possible when outputs are staged.  
+
+### 6. Human Oversight Compatibility  
+Humans can pause, inspect, approve, or override at any stage without breaking the system.
 
 ---
 
 ## Weaknesses
 
-### 1. Latency
-More stages means slower completion.
+### 1. Latency  
+More stages means slower completion.  
+**Mitigation:** Batch filters or collapse low-risk stages into one bounded unit.  
 
-### 2. Rigid sequencing
-If tasks require recursion or improvisation, pipelines may feel constraining.
+### 2. Rigid sequencing  
+If tasks require recursion or improvisation, pipelines may feel constraining.  
+**Mitigation:** Use conditional branches, sub-pipelines, or an event-driven router stage while keeping each stage contract-bound.
 
-### 3. Format fragility
-If output formats drift, downstream filters may fail.
+### 3. Format fragility  
+If output formats drift, downstream filters may fail.  
+**Mitigation:** Enforce strict IO schemas, validate outputs at every stage, and fail fast when contracts are violated.  
 
-Wingman resolves this by enforcing strict IO formats.
+### 4. Overhead   
+As pipelines grow, the number of stages can increase coordination cost and slow iteration.  
+**Mitigation:** Collapse low-risk filters into bounded composite stages, but preserve audit checkpoints before irreversible actions.  
+
+### 5. Poor Fit for Highly Parallel or Emergent Systems  
+Some workflows require simultaneous collaboration between many components, dynamic routing, or swarm-like orchestration.  
+**Mitigation:** Use Pipes & Filters inside each agent, but coordinate agents using Event-Driven or Swarm orchestration at the outer layer.  
 
 ---
 
@@ -217,17 +232,17 @@ It only cares that the IO contract is honored.
 
 ---
 
-## Wingman Implementation Rule
+## Wingman Implementation Rule  
 
-**If an agent is allowed to act autonomously, it must operate as a pipeline.**
-
-No single-stage improvisation.
-
-No fused execution.
-
-No hidden leaps.
-
-Pipeline thinking is the chassis.
+> **If an agent is allowed to act autonomously, it must operate as a pipeline.**  
+>
+> No single-stage improvisation.  
+>
+> No fused execution.  
+>
+> No hidden leaps.  
+>
+> Pipeline thinking is the chassis.  
 
 ---
 
@@ -235,7 +250,7 @@ Pipeline thinking is the chassis.
 
 Use this when defining a new workflow:
 
-FILTER NAME:  
+STAGE NAME (Filter):  
 	•	Mission:  
 	•	Input format:  
 	•	Output format:  
@@ -247,20 +262,20 @@ FILTER NAME:
 
 ## Field Note
 
-Pipes & Filters is not merely a software architecture style.
+Pipes & Filters is not merely a software architecture style.  
 
-It is a **moral architecture**:
+It is a **governance architecture**:  
 
-It forces systems to be built in a way that humans can understand, inspect, interrupt, and reverse.
+It forces systems to remain inspectable, interruptible, and accountable.  
 
-That is the minimum viable requirement for autonomy.
+That is the minimum viable requirement for autonomy.  
 
 ---
 
 ## Status
 
-**Recommended default pattern for all Wingman agent workflows.**  
+**Canonical default pattern** for all Wingman agent workflows.  
+Use unless a workflow explicitly requires event-driven routing or parallel orchestration.  
 
 ---
-
 
