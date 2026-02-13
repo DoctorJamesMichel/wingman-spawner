@@ -1,34 +1,144 @@
-# wingman-spawner
+# wingman-spawner — Governance-First Agent Chassis
 
-**wingman-spawner** is a replication chassis for **responsibility-first autonomous agents**: simple, file-based agent specs you can copy, remix, and extend—without losing governance DNA.
+Wingman-Spawner is a **spawnable governance chassis** for agentic systems.
 
-## What’s inside
+It is designed to make autonomy **interruptible, reviewable, reversible, and auditable** — with governance as the first layer, not a later patch.
 
-- `/agents/` — role definitions (each agent is a contract: mission + IO + required primitives + default refusal)
-  - `INSTALLER.md` — sets up tools safely and predictably
-  - `AUDITOR.md` — inspects, verifies, and flags risk before action
-  - `DEMO.md` — demonstrates the chassis in a minimal, reproducible loop
+This repo ships three layers:
 
-## How to use
-
-1. Open an agent file in `/agents/`
-2. Paste the **mission + formats + primitives** into your system prompt / agent config
-3. Run the workflow exactly as specified (especially refusals + handshakes)
-4. To spawn a new agent, copy an existing file and change only what the role requires
-
-## The Six Primitives (governance DNA)
-
-- **P-01 Scope Lock** — define what the agent *may* do (and what it may not).
-- **P-02 Permission Boundary** — least-privilege access; no hidden escalation.
-- **P-03 Interrupt** — a reliable stop/abort path when reality changes mid-run.
-- **P-04 Responsibility Handshake** — tools don’t run “because the model said so.”
-- **P-05 Audit Stamp** — every material action leaves a trace (inputs, decisions, outputs).
-- **P-06 Rollback Covenant** — if it can act, it must be reversible (or explicitly gated).
+- **Primitives** (`/primitives`) — the governance DNA (must-use invariants)
+- **Patterns** (`/patterns`) — deployable architectures that enforce primitives
+- **Agents** (`/agents`) — operator-facing roles (installer, auditor, legal, etc.)
+- **Training** (`/training`) — operator checklists + failure modes + certification loop (v0.2)
+- **Templates** (`/agent_templates`) — “fill-in” scaffolds for cloning agents safely (v0.2)
 
 ---
 
-**Principle:** Autonomy amplifies human responsibility.  
+## Why this exists
+
+Most architecture patterns assume competent human operators.
+
+Agentic systems add a new failure class:
+
+> **They can act at scale, at speed, and with false confidence.**
+
+So Wingman-Spawner assumes:
+- drift will happen,
+- dependencies will fail,
+- incentives will distort behavior,
+- humans will need an interrupt path,
+- and rollbacks must be first-class.
 
 ---
 
+## Quickstart (Non-Developer Operator)
+
+1) Start here:
+- `training/QUICKSTART.md`
+
+2) Choose your entry role:
+- `agents/OPERATOR.md` — runbook for day-to-day operation
+- `agents/AUDITOR.md` — detect missing governance before it cascades
+- `agents/INSTALLER.md` — replicate Wingman into another repo/system
+
+3) Use the templates if you’re creating a new agent or policy pack:
+- `agent_templates/AGENT_TEMPLATE.md`
+- `agent_templates/POLICY_TEMPLATE.md`
+
+---
+
+## Repo map
+
+### Primitives (Must-Use Governance DNA)
+See: `primitives/README.md`
+
+Current primitives (P-01 → P-07):
+- **P-01 Scope Lock**
+- **P-02 Permission Boundary**
+- **P-03 Interrupt**
+- **P-04 Responsibility Handshake**
+- **P-05 Coherence Audit Stamp**
+- **P-06 Rollback Covenant**
+- **P-07 Consentful Training**
+
+### Patterns (Deployable Architecture)
+See: `patterns/README.md`
+
+Patterns (PATTERN-01 → PATTERN-11) provide implementation layouts such as:
+- async execution via governed queues
+- orchestration/state machines
+- circuit breakers and failsafe modes
+- rate limiting + quotas
+- transactional outbox patterns
+…and other governance-preserving deployment shapes.
+
+### Agents (Operator-Facing Role Files)
+See: `agents/README.md`
+
+This folder contains role definitions such as:
+- `OPERATOR.md`
+- `INSTALLER.md`
+- `AUDITOR.md`
+- `LEGAL.md`
+- `FINANCE.md`
+- `SCHEDULER.md`
+- `WRITER.md`
+- `DEMO.md`
+- `SPORE.md` (seed replication / propagation role)
+
+Each agent must treat the **Must-Use Primitives** as mandatory.
+
+### Training (v0.2 Operator Training Layer)
+See: `training/README.md`
+
+v0.2 promises:
+- Operator quickstart for non-developers
+- Operator checklists (pre-run / mid-run / post-run)
+- Standard failure-mode catalog
+- Minimal “operator certification loop” concept
+
+### Templates (v0.2)
+See: `agent_templates/README.md`
+
+Templates are intentionally minimal, to prevent “blank agent” drift.
+They exist so new agents are born with:
+- explicit scope
+- explicit permissions
+- explicit audit requirements
+- explicit rollback behavior
+- explicit consent rules for learning/training
+
+---
+
+## Versioning & releases
+
+- Current version: see `VERSION.md`
+- Roadmap: see `ROADMAP.md`
+
+Release philosophy:
+- new primitives are rare and serious
+- patterns may expand freely as long as they enforce primitives
+- training should grow with operator reality, not academic theory
+
+---
+
+## Design rules (non-negotiable)
+
+- **No background magic.**
+- **No silent retries.**
+- **No execution without an envelope + audit stamp.**
+- **Autonomy is valid only when it remains interruptible and reviewable.**
+- **Rollback is required for governance-safe autonomy.**
+- **Consentful Training is the default stance for learning from humans.**
+
+---
+
+## What to do next (your first “real run”)
+
+1) Read: `training/QUICKSTART.md`  
+2) Run a toy job via the “bounded work + audit + rollback” loop  
+3) Use: `training/CHECKLIST_PRE_RUN.md` → `MID_RUN.md` → `POST_RUN.md`  
+4) If anything feels “hand-wavy,” open an issue and treat it as a governance gap.
+
+---
 
