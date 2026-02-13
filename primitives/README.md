@@ -23,7 +23,7 @@ These primitives define the upstream governance layer.
 
 ---
 
-## The Six Primitives
+## The Seven Primitives
 
 ### P-01 Scope Lock
 **Defines what the agent may do (and what it may not).**  
@@ -71,6 +71,13 @@ File: `P-05_COHERENCE_AUDIT_STAMP.md`
 If rollback is not first-class, autonomy is not governance-safe.
 
 File: `P-06_ROLLBACK_COVENANT.md`
+
+---
+
+### P-07 — Consentful Training  
+**What it is:** A governance primitive ensuring AI systems may learn from human knowledge only under explicit permission and traceable attribution.  
+**Why it matters:** Without consentful training, AI progress becomes extraction disguised as innovation.  
+**File:** [`P-07_CONSENTFUL_TRAINING.md`](P-07_CONSENTFUL_TRAINING.md)
 
 ---
 
