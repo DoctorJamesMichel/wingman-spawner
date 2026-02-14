@@ -24,7 +24,7 @@ Status: **READY**
 ### v0.2 — Operator Training Layer
 Goal: make the chassis usable by non-developers without losing rigor.
 
-Planned additions:
+Delivered in v0.2:
 
 - training folder shipped
 - /training/ quickstart for new Operators
