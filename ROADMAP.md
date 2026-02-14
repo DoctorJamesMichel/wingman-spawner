@@ -32,7 +32,7 @@ Delivered in v0.2:
 - standard failure-mode catalog
 - minimal “operator certification loop” concept
 
-Status: **IN PROGRESS**
+Status: **READY**
 
 ---
 
