@@ -8,6 +8,12 @@ If a primitive changes, it is treated as a structural change to the chassis itse
 
 ---
 
+## Current Version
+
+v0.2 — Operator Training Layer
+
+---
+
 ## Version Meaning
 
 ### v0.x — Experimental but Coherent
