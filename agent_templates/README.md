@@ -18,10 +18,10 @@ If you want “creative freedom,” do it *after* you have:
 
 ## Files
 
-1) `AGENT_TEMPLATE.md`
+1)   - [`agent_templates/AGENT_TEMPLATE.md`](agent_templates/AGENT_TEMPLATE.md)  
 - A minimal agent spec that prevents silent drift.
 
-2) `POLICY_TEMPLATE.md`
+2)   - [`agent_templates/POLICY_TEMPLATE.md`](agent_templates/POLICY_TEMPLATE.md)
 - A minimal policy pack scaffold: permissions, scopes, audit/rollback rules, consent.
 
 ---
