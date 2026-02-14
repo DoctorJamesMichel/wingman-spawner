@@ -2,8 +2,8 @@
 
 This roadmap is not a feature list.
 
-It is a sequence of governance upgrades designed to make autonomous execution
-safe, reproducible, and responsibility-preserving.
+It is a sequence of governance upgrades designed to make autonomous execution  
+safe, reproducible, and responsibility-preserving.  
 
 ---
 
@@ -25,12 +25,14 @@ Status: **READY**
 Goal: make the chassis usable by non-developers without losing rigor.
 
 Planned additions:
-- `/training/` quickstart for new Operators
+
+- training folder shipped
+- /training/ quickstart for new Operators
 - operator checklists (pre-run / mid-run / post-run)
 - standard failure-mode catalog
 - minimal “operator certification loop” concept
 
-Status: **NEXT**
+Status: **IN PROGRESS**
 
 ---
 
