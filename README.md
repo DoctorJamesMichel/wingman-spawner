@@ -3,7 +3,19 @@
 Wingman-Spawner is a **spawnable governance chassis** for agentic systems.  
 It is designed to make autonomy **interruptible, reviewable, reversible, and auditable** — with governance as the first layer, not a later patch.
 
-This repo ships three layers:
+---
+
+## The Wingman Doctrine
+
+Autonomous agents may self-govern for coherence and survival.
+
+But only humans can be held responsible in the human world—because only humans can absorb consequences there.
+
+**Autonomy scales execution. _Collaboration scales responsibility._**
+
+---
+
+This repo ships five layers:
 
 - **Primitives** (`/primitives`) — the governance DNA (must-use invariants)  
 - **Patterns** (`/patterns`) — deployable architectures that enforce primitives  
